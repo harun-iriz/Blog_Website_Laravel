@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label>İçerik</label>
-                    <textarea id="editor" name="contentt" class="form-control" rows="4" required></textarea>
+                    <textarea name="contentt" class="form-control" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Makaleyi Oluştur</button>
@@ -46,29 +46,18 @@
 @endsection
 
 @section('css')
-    <!-- include summernote css -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/q0kxhej5pa4dyptnk59j8bro0hkx05s4v86jflz2wpca4kuu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 
 @section('js')
-    <!-- include summernote js -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#editor').summernote(
-                {
-                    'height': 300
-                }
-            );
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-        // @param {String} color
-        $('#editor').summernote('backColor', '#1A191E');
-
-        // @param {String} color
-        $('#editor').summernote('foreColor', '#fff');
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'link a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter link image editimage pageembed permanentpen table tableofcontents',
+            toolbar_mode: 'floating',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
         });
     </script>
 @endsection
