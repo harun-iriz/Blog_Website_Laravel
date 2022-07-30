@@ -17,9 +17,9 @@ Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function ()
 Route::get('giris','App\Http\Controllers\Back\AuthController@login')->name('login');
 Route::post('giris','App\Http\Controllers\Back\AuthController@loginPost')->name('login.post');
 });
-Route::get('admin','App\Http\Controllers\Back\Dashboard@index')->name('admin.dashboard');
-Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function (){
 
+Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function (){
+    Route::get('','App\Http\Controllers\Back\Dashboard@index')->name('dashboard');
     // ARTICLE ROUTE
     Route::get('/makaleler/silinenler','App\Http\Controllers\Back\ArticleController@trashed')->name('trashed.article');
     Route::resource('makaleler',ArticleController::class);

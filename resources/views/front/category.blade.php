@@ -25,6 +25,10 @@
                                     <span class="fas fa-list-alt text-primary"></span>
                                     <a class="ml-1" href="#">{{$article->getCategory->name}}</a>
                                 </li>
+                                <li class="d-inline-block mr-3">
+                                    <span class="fas fa-solid fa-eye text-primary"></span>
+                                    <a class="ml-1" href="#">{{$article->hit}}</a>
+                                </li>
                             </ul>
                             <p class="card-text my-4">{{str_limit($article->content,200)}}</p>
                             <a href="{{route('single',$article->slug)}}" class="btn btn-primary">Read More <img src="{{asset('front/')}}/images/arrow-right.png" alt=""></a>

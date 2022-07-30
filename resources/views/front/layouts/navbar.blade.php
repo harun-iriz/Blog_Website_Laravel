@@ -19,7 +19,7 @@
 
     <!--Favicon-->
     <link rel="shortcut icon" href="{{asset($config->favicon)}}" type="image/png">
-    <link rel="icon" href="{{asset('front/')}}/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{{asset($config->favicon)}}" type="image/x-icon">
 
 </head>
 
@@ -40,7 +40,7 @@
     <aside><div class="sidenav position-sticky d-flex flex-column justify-content-between">
             <a class="logo_name" href="/">
                 @if($config->logo!=null)
-                <img src="{{asset($config->logo)}}" width="120">
+                <img src="{{asset($config->logo)}}" width="150">
                 @else
                 {{$config->title}}
                 @endif
@@ -93,7 +93,7 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <a class="logo_name" href="/">
-                            Harun IRIZ
+                            <img src="{{asset($config->logo)}}" width="70">
                         </a>
                     </div>
                     <div class="col-4 text-right">

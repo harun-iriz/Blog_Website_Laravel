@@ -5,14 +5,27 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-5 px-4 col-sm-6 mb-5">
-                <h5 class="font-primary text-white mb-4">Abone Ol</h5>
-                <p class="mt-4">Bloglardan ücretsiz şekilde haberdar olmak için abone olabilirsin.</p>
-                <form action="#">
-                    <div class="form-group" style="margin-left: 35px; margin-right: 35px">
-                        <input type="email" class="form-control bg-transparent rounded-0" placeholder="Email | (Çok yakında!)" disabled>
-                        <button class="btn" style="background-color: #E4112F" disabled>Abone ol <img src="{{asset('front/')}}/images/arrow-right.png" alt=""></button>
-                    </div>
-                </form>
+                <h5 class="font-primary text-white mb-4">En Çok Okunanlar</h5>
+                <div class="navbar navbar-dark my-4 p-0 font-primary">
+
+                    <ul class="navbar-nav w-100">
+                        <table class="table table-bordered">
+                            <tbody>
+                        @foreach($articles2 as $article)
+                                <tr>
+                                    <td>
+                                        <a href="{{route('single',$article->slug)}}">
+                                            <img style="width: 150px" class="card-img-top rounded-0" src="{{$article->image}}">
+                                        </a>
+                                    </td>
+                                    <td><a class="nav-link float-left" href="{{route('single',$article->slug)}}">{{$article->title}}</a></td>
+                                </tr>
+                        @endforeach
+                            </tbody>
+                        </table>
+                    </ul>
+
+                </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="widget text-center">
